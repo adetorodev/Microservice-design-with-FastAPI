@@ -1,8 +1,8 @@
 from datetime import datetime
 from uuid import UUID
-
-from starlette.response import Response
-from starlette import status
+from fastapi import FastAPI, Response, status
+# from starlette.response import Response
+# from starlette import status
 
 from orders.app import app
 
@@ -43,9 +43,9 @@ def update_order(order_id: UUID):
     return order
 
 
-@app.delete('/orders/{order_id}', status_code=status.HTTP_204_NO_CONTENT)
+@app.delete('/orders/{order_id}', status_code=200)
 def delete_order(order_id: UUID):
-    return Response(status_code=HTTPStatus.NO_CONTENT.value)
+    return Response.status_code = stataus.HTTP_200_OK
 
 
 @app.post('/orders/{order_id}/cancel')
